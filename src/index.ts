@@ -6,7 +6,7 @@ const joker = 2;
 const deck = new Deck(joker);
 const judgement = new Judgement();
 let choiceCards: Card[] = [];
-let getCards: Card[] = [];
+let totalScore: Card[][] = [];
 
 // deck.shuffle();
 
@@ -19,10 +19,12 @@ if (choiceCards.length === 2) {
   let isDuplicate = judgement.duplicateNumber(choiceCards);
 
   if (isDuplicate) {
+    let tmp: Card[] = [];
     choiceCards.map((card: Card) => {
-      // 得点
-      getCards.push(deck.get(card))
+      tmp.push(deck.get(card))
     });
+    // 得点
+    totalScore.push(tmp);
     choiceCards.length = 0;
   }
 }
