@@ -12,7 +12,7 @@ export class Judgement {
    *
    */
   public duplicateNumber (cards: Card[]): boolean {
-    let set = new Set();
+    const set = new Set();
 
     cards.map((card: Card) => {
       set.add(card.rank);

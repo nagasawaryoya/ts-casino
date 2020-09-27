@@ -18,9 +18,9 @@ export class Deck {
 
     // 指定枚ジョーカーを含める
     if (jokerCount) {
-      [...Array(jokerCount)].map(() => {
+      for (let i = 0; i < jokerCount; i++) {
         this.cards.push(new Card('joker', 0));
-      })
+      }
     }
   }
 
@@ -53,7 +53,7 @@ export class Deck {
    * @param cards 選択したカードの配列
    */
   public get(card: Card): Card {
-    let i = this.cards.indexOf(card);
+    const i = this.cards.indexOf(card);
 
     return this.cards.splice(i, 1)[0];
   }

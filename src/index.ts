@@ -10,21 +10,24 @@ let totalScore: Card[][] = [];
 
 // deck.shuffle();
 
-// カードを引く
+// カードを選ぶ
 choiceCards.push(deck.choice(1));
 choiceCards.push(deck.choice(3));
 
 if (choiceCards.length === 2) {
   // 引いたカードの数字が揃っているか
   let isDuplicate = judgement.duplicateNumber(choiceCards);
+  if (!isDuplicate) {
+    // 次のプレーヤーに移る
 
-  if (isDuplicate) {
+  } else {
     let tmp: Card[] = [];
     choiceCards.map((card: Card) => {
-      tmp.push(deck.get(card))
+      tmp.push(deck.get(card));
     });
     // 得点
     totalScore.push(tmp);
-    choiceCards.length = 0;
   }
+  choiceCards.length = 0;
 }
+console.log(totalScore)
